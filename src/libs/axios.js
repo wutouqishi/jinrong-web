@@ -37,20 +37,16 @@ class HttpRequest {
     // 响应拦截
     instance.interceptors.response.use(res => {
       this.destroy(url)
-      const { data } = res
-
-      if (res.status === 200){
-        return data
-      }
+      // const { data } = res
       if (res.status === 403){
         Toast.fail('访问受限');
-      }
-      if (res.status === 401){
+      }else if (res.status === 401){
         setToken('')
         Toast.fail('授权过期，重新登录');
-      }
-      if (res.status >= 400){
+      }else if (res.status >= 400){
         Toast.fail('发生错误，请重试');
+      }else {
+        return res.data
       }
       // if (res.status === 200) {
       //   if (data.code === -1) {

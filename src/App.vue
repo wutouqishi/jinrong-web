@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view />
   </div>
 </template>
 <script>
@@ -12,11 +12,17 @@ export default {
       amp: true
     }
   },
-  computed:{
-        cacheList () {
-      const list = ['information', 'withdrawal','videos-list','my-agent','order']
-      return list
-    },
+  computed: {
+    cacheList() {
+      const list = [
+        "information",
+        "withdrawal",
+        "videos-list",
+        "my-agent",
+        "order"
+      ];
+      return list;
+    }
   },
   mounted() {
     this.remsuofang = () => {
@@ -40,7 +46,6 @@ export default {
     };
     this.remsuofang();
   },
-  methods: {
-  }
+  methods: {}
 };
 </script>>
