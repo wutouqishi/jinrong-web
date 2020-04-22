@@ -6,30 +6,30 @@
   <div class="my-wrap">
     <div class="navigation-top">
       <!-- 头像 -->
-      <div class="headPortrait"></div>
+      <img class="headPortrait" :src="user.avatar" />
       <!-- 昵称部分 -->
       <div class="nickname">
-        <span>你的名字</span>
+        <span>{{user.name}}</span>
         <br />
-        <span>微信昵称：某某某</span>
+        <span>微信昵称：{{user.nick_name}}</span>
       </div>
     </div>
 
     <div class="navigation-column">
       <div class="li">
-        <img :src="i22_03" alt />
+        <img :src="c_user_info" alt />
         <span>我的信息</span>
       </div>
       <div class="li">
-        <img :src="i22_06" alt />
+        <img :src="c_my_reserve" alt />
         <span>我的预约</span>
       </div>
       <div class="li">
-        <img :src="i11_17" alt />
+        <img :src="c_my_product" alt />
         <span>我的产品</span>
       </div>
       <div class="li">
-        <img :src="i11_26" alt />
+        <img :src="c_financial" alt />
         <span>已完成产品</span>
       </div>
     </div>
@@ -38,21 +38,28 @@
 </template>
 
 <script>
-import i11_26 from "@/assets/11_26.jpg";
-import i11_17 from "@/assets/11_17.jpg";
-import i22_03 from "@/assets/22_03.jpg";
-import i22_06 from "@/assets/22_06.jpg";
-import i31_07 from "@/assets/31_07.jpg";
+import c_user_info from '@/assets/svg/c-user-info.png'
+import c_my_reserve from '@/assets/svg/c-my-reserve.png'
+import c_my_product from '@/assets/svg/c-my-product.png'
+import c_financial from '@/assets/svg/c-financial.png'
+
 export default {
   name: "my",
   data() {
     return {
-      i11_26,
-      i11_17,
-      i22_03,
-      i22_06,
-      i31_07
-    };
+      c_user_info,
+      c_my_reserve,
+      c_my_product,
+      c_financial
+    }
+  },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    }
+  },
+  created(){
+    console.log(this.user)
   }
 };
 </script>

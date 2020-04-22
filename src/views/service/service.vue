@@ -54,7 +54,6 @@
 </template>
 
 <script>
-import i31_07 from "@/assets/31_07.jpg";
 import imember_introduction_03 from "@/assets/member-introduction_03.jpg";
 import imore_services_03 from "@/assets/more_services_03.jpg";
 export default {
@@ -62,7 +61,6 @@ export default {
   data() {
     return {
       active: 1,
-      i31_07,
       imember_introduction_03,
       imore_services_03
     };

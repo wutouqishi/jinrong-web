@@ -6,7 +6,7 @@
     <div class="navigation-top">
       <!-- logo -->
       <div class="headPortrait">
-        <img :src=" i33_03" alt />
+        <img :src="logo" alt />
       </div>
       <!-- 昵称部分 -->
       <div class="nickname">
@@ -34,13 +34,13 @@
 </template>
 
 <script>
-import i31_07 from "@/assets/31_07.jpg";
+import logo from '@/assets/img/logo.png'
 import i33_03 from "@/assets/33_03.jpg";
 export default {
   name: "contact",
   data() {
     return {
-      i31_07,
+      logo,
       i33_03
     };
   }
