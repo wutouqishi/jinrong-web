@@ -23,7 +23,6 @@
         <div class="txt">会员认证</div>
       </a>
     </div>
-
     <div class="navigation-column">
       <a href class="nav-li">
         <img class="icon" :src="c_product" alt />

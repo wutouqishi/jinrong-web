@@ -29,28 +29,7 @@
       </div>
       
     </div>
-    <!-- tabBar -->
-    <div class="tabbar">
-      <a href="./../" class="item">
-        <span class="iconfont icon-shouye"></span>
-        <div class="txt">首页</div>
-      </a>
-      <a href="./../my" class="item">
-        <span class="iconfont icon-my"></span>
-        <div class="txt">个人中心</div>
-      </a>
-      <a class="item">
-        <img class="icon" :src="i31_07" alt />
-      </a>
-      <a href="./../service" class="item">
-        <span class="iconfont icon-shoutixiang-"></span>
-        <div class="txt">更多服务</div>
-      </a>
-      <a class="item">
-        <span class="iconfont icon-lianxi"></span>
-        <div class="txt">联系我们</div>
-      </a>
-    </div>
+
   </div>
 </template>
 
