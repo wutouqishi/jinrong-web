@@ -48,18 +48,7 @@ class HttpRequest {
       }else {
         return res.data
       }
-      // if (res.status === 200) {
-      //   if (data.code === -1) {
-      //     setToken('')
-      //     Router.push({ name: 'login' })
-      //     return Promise.reject()
-      //   } else {
-      //     return data
-      //   }
-      // } else {
 
-      //   return Promise.reject()
-      // }
     }, error => {
       this.destroy(url)
       let errorInfo = error.response
