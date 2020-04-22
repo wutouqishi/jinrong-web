@@ -5,16 +5,30 @@
   <div class="my-message-wrap">
     <!-- 头像部分 -->
     <div class="head-portrait">
-        <img :src="user.avatar" alt="">
-        <span>{{user.nick_name}}</span>
+        <img class="avatar" :src="user.avatar" alt="">
+        <span class="name" >{{user.nick_name}}</span>
     </div>
     <!-- 信息展示部分 -->
     <div class="information-display">
-        <div class="if-row">我的信息</div>
-        <div class="if-row">姓名 <span>{{user.name}}</span></div>
-        <div class="if-row">电话 <span>{{user.phone}}</span></div>
-        <div class="if-row">身份证 <span>{{user.id_card}}</span></div>
-        <div class="if-row">地址 <span>{{user.address}}</span></div>
+        <div class="if-row ro-tit">我的信息</div>
+        <div class="if-row">
+          <p>姓名</p>
+          <p class="row-r"><span>{{user.name}}</span></p>
+        </div>
+        <div class="if-row" v-for="(item, index) in user_data" :key="item.name" >
+          <p>{{item.name}}</p>
+          <p class="row-r" @click="showData(index)">
+            <template v-if="item.type">
+              <span>{{item.show}}</span><van-icon name="eye-o" />
+            </template>
+            <template v-else>
+              <span>{{item.text}}</span><van-icon name="closed-eye" />
+              
+            </template>
+          </p>
+        </div>
+        
+        <div class="if-row"><p>地址</p> <p class="row-r"><span>{{user.address}}</span></p></div>
     </div>
   </div>
 </template>
@@ -22,6 +36,11 @@
 <script>
 export default {
   name: "myMessage",
+  data(){
+    return{
+      user_data:[]
+    }
+  },
   computed: {
     user() {
       return this.$store.state.user;
@@ -29,6 +48,25 @@ export default {
   },
   created(){
     console.log(this.user)
+    this.user_data=[
+      {
+        type: false,
+        name: "电话",
+        text: this.user.phone,
+        show: this.user.real_phone
+      },
+      {
+        type: false,
+        name: "身份证",
+        text: this.user.id_card,
+        show: this.user.real_id_card
+      },
+    ]
+  },
+  methods:{
+    showData(val){
+      this.user_data[val].type = !this.user_data[val].type
+    }
   }
 };
 </script>
