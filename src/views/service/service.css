@@ -1,0 +1,121 @@
+.service-wrap {
+  position: relative;
+  background-color: #fafafa;
+  height: 100%;
+}
+.service-wrap .content {
+  width: 338px;
+  margin: auto;
+}
+.service-wrap .content .certifiedMember {
+  height: 100px;
+  border-bottom: 2px #ccc solid;
+}
+.service-wrap .content .certifiedMember .img {
+  float: left;
+  width: 62px;
+  height: 62px;
+  background-color: blue;
+  margin-top: 18px;
+}
+.service-wrap .content .certifiedMember .tex {
+  float: left;
+  width: 250px;
+  height: 62px;
+  margin-top: 18px;
+  margin-left: 16px;
+  line-height: 28px;
+}
+.service-wrap .content .certifiedMember .tex span:first-child {
+  font-size: 16px;
+  color: #000;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.service-wrap .content .certifiedMember .tex span {
+  font-size: 10px;
+  color: #ccc;
+}
+.service-wrap .content .generalMembers {
+  height: 100px;
+  border-bottom: 2px #ccc solid;
+}
+.service-wrap .content .generalMembers .img {
+  float: left;
+  width: 62px;
+  height: 62px;
+  background-color: blue;
+  margin-top: 18px;
+}
+.service-wrap .content .generalMembers .tex {
+  float: left;
+  width: 250px;
+  height: 62px;
+  margin-top: 18px;
+  margin-left: 16px;
+  line-height: 28px;
+}
+.service-wrap .content .generalMembers .tex span:first-child {
+  font-size: 16px;
+  color: #000;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.service-wrap .content .generalMembers .tex span {
+  font-size: 10px;
+  color: #ccc;
+}
+.service-wrap .content .commonProblem {
+  height: 100px;
+  border-bottom: 2px #ccc solid;
+}
+.service-wrap .content .commonProblem .img {
+  float: left;
+  width: 62px;
+  height: 62px;
+  background-color: blue;
+  margin-top: 18px;
+}
+.service-wrap .content .commonProblem .tex {
+  float: left;
+  width: 250px;
+  height: 62px;
+  margin-top: 18px;
+  margin-left: 16px;
+  line-height: 28px;
+}
+.service-wrap .content .commonProblem .tex span:first-child {
+  font-size: 16px;
+  color: #000;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.service-wrap .content .commonProblem .tex span {
+  font-size: 10px;
+  color: #ccc;
+}
+.service-wrap .tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  height: 38px;
+  padding: 6px;
+  background-color: #fafafa;
+}
+.service-wrap .tabbar .item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.service-wrap .tabbar .item .txt {
+  font-size: 12px;
+}
+.service-wrap .tabbar .item .icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}

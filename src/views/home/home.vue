@@ -154,6 +154,11 @@ export default {
       console.log(res.data);
       this.payments_list = res.data
     });
+  },
+  service(){
+    // console.log(111);
+    
+    // this.$router.replace('../service/service.vue')
   }
 };
 </script>

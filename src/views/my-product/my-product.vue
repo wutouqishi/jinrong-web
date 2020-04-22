@@ -3,7 +3,7 @@
 </style>
 <template>
   <div class="my-product-wrap">
-
+    我的产品
   </div>
 </template>
 
