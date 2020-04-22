@@ -10,7 +10,7 @@
 
 <script>
   export default {
-    name:'financial-planning'
+    name:'financialPlanning'
   }
 </script>
 
