@@ -1,6 +1,6 @@
 .contact-wrap{
     position: relative;
-    padding-top: 10px;
+    // padding-top: 10px;
     background-color: #fafafa;
     padding-bottom: 60px;
     &::before{
@@ -19,13 +19,13 @@
         z-index: 1;
         margin:auto;
         display: flex;
-        width: 375px;
+        // width: 375px;
         height: 140px;
         // logo
         .headPortrait{
             width: 62px;
             height: 62px;
-            margin: 40px 0 28px 24px;
+            margin: 50px 14px 30px 26px;
             border-radius: 6px;
             img{
                 width: 100%;
@@ -34,15 +34,15 @@
         }
         // 昵称部分nickname
         .nickname{
-            width: 250px;
+            // width: 250px;
             height: 62px;
-            margin: 40px 0 28px 24px;
+            margin: 50px 0 30px 14px;
             line-height: 62px;
             span{
                 padding-left: 2px;
                 font-size: 30px;
                 font-weight: 700;
-                color: #FCFEFF;
+                color: #fff;
             }
         }
     }
@@ -51,43 +51,43 @@
         z-index: 1;
         background-color: #fff;
         border-radius: 6px;
-        margin: 0 14px;
+        margin: 0 15px;
         display: flex;
         flex-wrap: wrap;
-        width: 347px;
-        height: 250px;
-        box-shadow: 0 0 10px 0px #ddd;
+        // width: 347px;
+        height: 248px;
+        // box-shadow: 0 0 10px 0px #ddd;
         .li{
             position: relative;
-            // left: 50%;
-            // transform: translateX(-50%);
-            margin: 6px 20px;
-            width: 308px;
-            height: 50px;
-            border-bottom: 2px #ccc solid;
-            &::after{
+            margin: 0px 20px;
+            width: 100%;
+            height: 72px;
+            border-bottom: 2PX #E2E4EA solid;
+            // background-color: blue;
+            &:last-child::after{
                 // z-index: -1;
                 content: '';
                 position: absolute;
                 right: 2px;
-                top: 28px;
+                top: 10px;
                 display: block;
-                // margin-top: 25px;
-                border-top: 2px #ccc solid;
-                border-right: 2px #ccc solid;
+                margin-top: 20px;
+                border-top: 2PX #C5CAD5 solid;
+                border-right: 2PX #C5CAD5 solid;
                 transform: rotate(45deg);
                 width: 10px;
                 height: 10px;
             }
             span:first-child{
-                font-size: 16px;
-                color: #000;
+                display: block;
+                margin-top: 18px;
+                font-size: 14px;
+                color: #111A34;
             }
             span{
                 font-size: 12px;
-                font-weight: 700;
                 letter-spacing: 2px;
-                color: #ccc;
+                color: #858B9C;
             }
         }
     }
