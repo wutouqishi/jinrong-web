@@ -13,6 +13,6 @@
 </template>
 <script>
 export default {
-  name: "certified-member"
+  name: "certifiedMember"
 };
 </script>

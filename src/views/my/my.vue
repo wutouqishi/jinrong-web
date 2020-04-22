@@ -16,10 +16,10 @@
     </div>
 
     <div class="navigation-column">
-      <div class="li">
+      <router-link to="/my-message" class="li">
         <img :src="c_user_info" alt />
         <span>我的信息</span>
-      </div>
+      </router-link>
       <div class="li">
         <img :src="c_my_reserve" alt />
         <span>我的预约</span>

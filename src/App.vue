@@ -1,5 +1,14 @@
 <template>
   <div id="app">
+    <van-nav-bar
+      v-if="tab_hover==-1"
+      :title="bar_title"
+      left-text="返回"
+      left-arrow
+      @click-left="onClickLeft"
+      fixed
+      placeholder
+    />
     <router-view />
     <div class="tab-bar" v-if="tab_hover != -1">
       <router-link to="/" class="item" :class="{hover:tab_hover==0}">
@@ -7,7 +16,7 @@
         <div class="txt">首页</div>
       </router-link>
       <router-link to="/my" class="item" :class="{hover:tab_hover==1}">
-       <van-icon name="contact" />
+        <van-icon name="contact" />
         <div class="txt">个人中心</div>
       </router-link>
       <div class="item">
@@ -18,14 +27,14 @@
         <div class="txt">更多服务</div>
       </router-link>
       <router-link to="/contact" class="item" :class="{hover:tab_hover==3}">
-       <van-icon name="phone-o" />
+        <van-icon name="phone-o" />
         <div class="txt">联系我们</div>
       </router-link>
     </div>
   </div>
 </template>
 <script>
-import logo from '@/assets/img/logo.png'
+import logo from "@/assets/img/logo.png";
 export default {
   metaInfo: {
     titleTemplate: "%s - 金融",
@@ -34,11 +43,12 @@ export default {
       amp: true
     }
   },
-  data(){
+  data() {
     return {
       logo,
-      tab_hover:0
-    }
+      bar_title: "",
+      tab_hover: 0
+    };
   },
   computed: {
     cacheList() {
@@ -54,21 +64,25 @@ export default {
   },
   watch: {
     $route: function(to) {
+      this.bar_title = "";
+      if (to.meta && to.meta.title) {
+        this.bar_title = to.meta.title;
+      }
       switch (to.name) {
-        case 'home':
-          this.tab_hover = 0
+        case "home":
+          this.tab_hover = 0;
           break;
-        case 'my':
-          this.tab_hover = 1
+        case "my":
+          this.tab_hover = 1;
           break;
-        case 'service':
-          this.tab_hover = 2
+        case "service":
+          this.tab_hover = 2;
           break;
-        case 'contact':
-          this.tab_hover = 3
-          break;                              
+        case "contact":
+          this.tab_hover = 3;
+          break;
         default:
-          this.tab_hover = -1
+          this.tab_hover = -1;
           break;
       }
     }
@@ -95,10 +109,29 @@ export default {
     };
     this.remsuofang();
   },
-  methods: {}
+  methods: {
+    onClickLeft() {
+      this.$router.go(-1);
+    }
+  }
 };
 </script>>
 <style lang="less" >
+.van-nav-bar {
+  .van-nav-bar__left {
+    .van-icon {
+      color: #ff5e67;
+    }
+    .van-nav-bar__text {
+      color: #ff5e67;
+    }
+  }
+  .van-nav-bar__title{
+    color: #ff5e67;
+    font-weight: unset;
+  }
+}
+
 .tab-bar {
   position: fixed;
   bottom: 0;
@@ -114,10 +147,10 @@ export default {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    &.hover{
+    &.hover {
       color: #ff4d4f;
     }
-    .van-icon{
+    .van-icon {
       font-size: 16px;
     }
     .txt {
