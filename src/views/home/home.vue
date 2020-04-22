@@ -184,18 +184,18 @@
         <span class="iconfont icon-shouye"></span>
         <div class="txt">首页</div>
       </a>
-      <a class="item">
+      <a href="./../my" class="item">
         <span class="iconfont icon-my"></span>
         <div class="txt">个人中心</div>
       </a>
       <a class="item">
         <img class="icon" :src="i31_07" alt />
       </a>
-      <a class="item">
+      <a href="./../service" class="item">
         <span class="iconfont icon-shoutixiang-"></span>
-        <div class="txt">更多服务</div>
+        <div class="txt" @click="service">更多服务</div>
       </a>
-      <a class="item">
+      <a href="./../contact" class="item">
         <span class="iconfont icon-lianxi"></span>
         <div class="txt">联系我们</div>
       </a>
@@ -236,8 +236,13 @@ export default {
   },
   created() {
     getSettings().then(res => {
-      console.log(res);
+      // console.log(res);
     });
+  },
+  service(){
+    // console.log(111);
+    
+    // this.$router.replace('../service/service.vue')
   }
 };
 </script>
