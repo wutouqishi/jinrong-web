@@ -18,21 +18,18 @@
       <div class="li">
         <p class="text">
           <span>总公司</span>
-          <br />
           <span>{{settings.head_address}}</span>
         </p>
       </div>
       <div class="li">
         <p class="text">
           <span>昆明分公司</span>
-          <br />
           <span>{{settings.branch_address}}</span>
         </p>
       </div>
       <a :href="'tel:'+settings.phone" class="li">
         <p class="text">
           <span>联系电话</span>
-          <br />
           <span>{{settings.phone}}</span>
         </p>
       </a>
