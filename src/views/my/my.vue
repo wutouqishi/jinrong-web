@@ -20,18 +20,18 @@
         <img :src="c_user_info" alt />
         <span>我的信息</span>
       </router-link>
-      <div class="li">
+      <router-link to="/my-appointment" class="li">
         <img :src="c_my_reserve" alt />
         <span>我的预约</span>
-      </div>
-      <div class="li">
+      </router-link>
+      <router-link to="/" class="li">
         <img :src="c_my_product" alt />
         <span>我的产品</span>
-      </div>
-      <div class="li">
+      </router-link>
+      <router-link to="/" class="li">
         <img :src="c_financial" alt />
         <span>已完成产品</span>
-      </div>
+      </router-link>
     </div>
 
   </div>
