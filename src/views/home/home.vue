@@ -59,9 +59,12 @@
     </div>
     <!-- 中 -->
     <div class="advertising">
-      <a class="ad-li">
-        <!-- <img :src="i21_03" alt /> -->
-      </a>
+      <router-link class="ad-li" :to="'/'+top_product.id" v-if="top_product">
+        <img :src="top_product.image" alt /> 
+      </router-link>
+      <router-link class="ad-li" :to="sub_img_link?sub_img_link:'/'" v-else-if="sub_img">
+        <img :src="sub_img" alt />
+      </router-link>
     </div>
 
     <div class="h-title">兑付信息</div>
@@ -123,7 +126,10 @@ export default {
       c_msg,
       swipe_list: [],
       products_list: [],
-      payments_list:[]
+      payments_list:[],
+      top_product:null,
+      sub_img_link:null,
+      sub_img:null,
     };
   },
   components: {
@@ -131,11 +137,17 @@ export default {
   },
   created() {
     getSettings().then(res => {
-      let { images } = res;
+      let { images, product, sub_img_link, sub_img } = res;
       this.swipe_list = images.data.map(item => {
         item.url = this.$store.state.url + item.url;
         return item;
       });
+      if(sub_img_link) this.sub_img_link = sub_img_link
+      if(sub_img) this.sub_img = sub_img
+      if(product) {
+        product.image  = this.$store.state.url + product.image
+        this.top_product = product
+      }
     });
     getProducts({
       include: "image",
@@ -143,14 +155,14 @@ export default {
       per_page: 5,
       status: 1
     }).then(res => {
-      console.log(res.data);
+      
       this.products_list = res.data;
     });
     getPayments({
       include: 'product',
       limit: true
     }).then(res => {
-      console.log(res.data);
+      
       this.payments_list = res.data
     });
   },

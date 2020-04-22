@@ -54,7 +54,6 @@ export default {
   },
   watch: {
     $route: function(to) {
-      console.log(to);
       switch (to.name) {
         case 'home':
           this.tab_hover = 0

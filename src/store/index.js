@@ -2,13 +2,14 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import { setToken, getToken } from '@/libs/util'
 import { login } from '_api/auth'
+import { user_info } from '_api/user'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     url:'http://apiv2.d.kmdtkj.com/',
     token: getToken(),
-    user:{}
+    user:null
   },
   mutations: {
     setToken(state, token, day) {
@@ -35,27 +36,18 @@ export default new Vuex.Store({
           resolve(res)
         })
       })
-    }
-    // // 获取用户相关信息
-    // getUserInfo({ state, commit }) {
-    //   return new Promise((resolve, reject) => {
-    //     try {
-    //       user_info().then(res => {
-    //         const { data, code } = res
-    //         if (code === 0) {
-    //           commit('setUser', data)
-    //           resolve(res)
-    //         } else {
-    //           reject(res)
-    //         }
-    //       }).catch(err => {
-    //         reject(err)
-    //       })
-    //     } catch (error) {
-    //       reject(error)
-    //     }
-    //   })
-    // },
+    },
+    // 获取用户相关信息
+    getUserInfo({ state, commit }) {
+      return new Promise((resolve, reject) => {
+        user_info().then(res => {
+          commit('setUser',res)
+          resolve(res)
+        }).catch(err => {
+          reject(err)
+        })
+      })
+    },
   },
   modules: {
   }
