@@ -25,7 +25,11 @@ const filter = ['login', 'forgotten', 'agreement']
 router.beforeEach((to, from, next) => {
 
   const token = getToken()
-
+  if(!store.state.settings){
+    store.dispatch('Settings').then(res=>{
+      next()
+    })
+  }
   if (!token) {
     store.dispatch('login', { code: 'sdkfojsdaolfjoisajdiof' }).then(res => {
       next()

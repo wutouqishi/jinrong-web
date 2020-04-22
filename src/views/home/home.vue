@@ -52,18 +52,18 @@
 
     <div class="rotatio-chart">
       <van-swipe class="my-swipe" :autoplay="3000" indicator-color="#d42d27">
-        <van-swipe-item v-for="item in swipe_list" :key="item.url">
+        <van-swipe-item v-for="item in settings.swipe_list" :key="item.url">
           <img class="swipe-img" :src="item.url" alt />
         </van-swipe-item>
       </van-swipe>
     </div>
     <!-- 中 -->
     <div class="advertising">
-      <router-link class="ad-li" :to="'/'+top_product.id" v-if="top_product">
-        <img :src="top_product.image" alt /> 
+      <router-link class="ad-li" :to="'/'+settings.top_product.id" v-if="settings.top_product">
+        <img :src="settings.top_product.image" alt /> 
       </router-link>
-      <router-link class="ad-li" :to="sub_img_link?sub_img_link:'/'" v-else-if="sub_img">
-        <img :src="sub_img" alt />
+      <router-link class="ad-li" :to="settings.sub_img_link?settings.sub_img_link:'/'" v-else-if="settings.sub_img">
+        <img :src="settings.sub_img" alt />
       </router-link>
     </div>
 
@@ -135,20 +135,25 @@ export default {
   components: {
     productList
   },
+  computed:{
+    settings(){
+      return this.$store.state.settings
+    }
+  },
   created() {
-    getSettings().then(res => {
-      let { images, product, sub_img_link, sub_img } = res;
-      this.swipe_list = images.data.map(item => {
-        item.url = this.$store.state.url + item.url;
-        return item;
-      });
-      if(sub_img_link) this.sub_img_link = sub_img_link
-      if(sub_img) this.sub_img = sub_img
-      if(product) {
-        product.image  = this.$store.state.url + product.image
-        this.top_product = product
-      }
-    });
+    // getSettings().then(res => {
+    //   let { images, product, sub_img_link, sub_img } = res;
+    //   this.swipe_list = images.data.map(item => {
+    //     item.url = this.$store.state.url + item.url;
+    //     return item;
+    //   });
+    //   if(sub_img_link) this.sub_img_link = sub_img_link
+    //   if(sub_img) this.sub_img = sub_img
+    //   if(product) {
+    //     product.image  = this.$store.state.url + product.image
+    //     this.top_product = product
+    //   }
+    // });
     getProducts({
       include: "image",
       page: 1,
@@ -165,11 +170,6 @@ export default {
       
       this.payments_list = res.data
     });
-  },
-  service(){
-    // console.log(111);
-    
-    // this.$router.replace('../service/service.vue')
   }
 };
 </script>

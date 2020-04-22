@@ -16,33 +16,43 @@
 
     <div class="navigation-column">
       <div class="li">
-        <span>总公司</span><br>
-        <span>上海市静安区华山路370号8801室</span>
+        <p class="text">
+          <span>总公司</span>
+          <br />
+          <span>{{settings.head_address}}</span>
+        </p>
       </div>
-       <div class="li">
-        <span>昆明分公司</span><br>
-        <span>云南省昆明市西山区滇池路摩根道9栋6楼</span>
+      <div class="li">
+        <p class="text">
+          <span>昆明分公司</span>
+          <br />
+          <span>{{settings.branch_address}}</span>
+        </p>
       </div>
-       <div class="li">
-        <span>联系电话</span><br>
-        <span>0871-65330028</span>
-      </div>
-      
+      <a :href="'tel:'+settings.phone" class="li">
+        <p class="text">
+          <span>联系电话</span>
+          <br />
+          <span>{{settings.phone}}</span>
+        </p>
+      </a>
     </div>
-
   </div>
 </template>
 
 <script>
-import logo from '@/assets/img/logo.png'
-import i33_03 from "@/assets/33_03.jpg";
+import logo from "@/assets/img/logo.png";
 export default {
   name: "contact",
   data() {
     return {
-      logo,
-      i33_03
+      logo
     };
+  },
+  computed: {
+    settings() {
+      return this.$store.state.settings;
+    }
   }
 };
 </script>
