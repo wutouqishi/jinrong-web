@@ -4,7 +4,7 @@
 <template>
   <div class="my-products-wrap">
     <!-- 返回部分 -->
-    <div class="return">我的产品</div>
+    <!-- <div class="return">我的产品</div> -->
   </div>
 </template>
 <script>

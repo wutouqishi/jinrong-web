@@ -1,0 +1,192 @@
+.wrap{
+    position: relative;
+    padding-top: 10px;
+    background-color: #f9fafb;
+    padding-bottom: 60px;
+    width: 100vw;
+    height: 100vh;
+    &::before{
+        // z-index: -1;
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        display: block;
+        background-image: url('~@/assets/svg/fx_bg.70aff989.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 200px;
+    }
+    //头部
+    .head{
+        overflow: hidden;
+        position: relative;
+        // z-index: 1;
+        height: 190px;
+        //头像
+        .portrait{
+            width: 100vw;
+            height: 50px;
+            margin: 15px 20px 0 20px;
+            // background-color: darkslateblue;
+            .head-portrait{
+                float: left;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: #fff;
+            }
+            span{
+                display: block;
+                float: left;
+                height: 50px;
+                margin-left: 20px;
+                line-height: 50px;
+                font-size: 26px;
+                letter-spacing: 2px;
+                color: #2C3E50;
+            }
+        }
+        //金币部分
+        .gold{
+            margin: 10px auto 0;
+            height: 50px;
+            text-align: center;
+            img{
+                display: block;
+                float: left;
+                margin-left: 100px;
+                width: 50px;
+                height: 50px;
+            }
+            span{
+                display: block;
+                float: left;
+                line-height: 50px;
+                padding:0 10px;
+                font-size: 22px;
+                font-weight: 700;
+                color: #2C3E50;
+                height: 50px;
+            }
+        }
+        .number{
+            width: 100vw;
+            height: 50px;
+            font-size: 18px;
+            color: #727D88;
+            line-height: 50px;
+            text-align: center;
+        }
+        
+    }
+    //三个导航按钮部分
+    .list{
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-wrap: wrap;
+        height: 88px;
+        border-bottom: 1px #DBDCDD solid;
+        .li{
+            width: 33%;
+            height: 100%;
+            text-align: center;
+            img{
+                display: block;
+                width: 50px;
+                height: 50px;
+                margin: auto;
+            }
+            span{
+                font-size: 14px;
+                color: #2C3E50;
+            }
+        }
+    }
+    //收入明细部分
+    .integral{
+        margin-top: 20px;
+        border: 1px #D1D2D3 solid;
+        border-radius: 10px;
+        .li{
+            height: 56px;
+            margin: 0 32px;
+            border-bottom: 1px #D0D1D2 solid;
+            .left{
+                float: left;
+                width: 50vw;
+                height: 100%;
+                .top{
+                    display: block;
+                    height: 16px;
+                   margin-top: 10px;
+                    font-size: 16px;
+                    color: #2C3E50;
+                }
+                .bottom{
+                    display: block;
+                    height: 12px;
+                    margin-top: 8px;
+                    font-size: 12px;
+                    color: #999;
+                }
+            }
+            .right{
+                float: right;
+                width: 30vw;
+                height: 100%;
+                font-size: 12px;
+                color: #1D39C4;
+               line-height: 56px;
+               text-align: right;
+            }
+        }
+    }
+    //好友列表部分
+    .integrall{
+        margin-top: 20px;
+        border: 1px #D1D2D3 solid;
+        border-radius: 10px;
+        padding: 0 20px;
+        .lii{
+            height: 84px;
+            border-bottom: 1PX #D9DADB solid;
+            .left{
+                margin: 10px 0;
+                float: left;
+                width: 60px;
+                height: 60px;
+                border-radius: 8px;
+                border: 1px #ccc solid;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .rigth{
+                margin: 10px 0;
+                float: right;
+                font-size: 16px;
+                color: #5c0011;
+                line-height: 60px;
+                text-align: right;
+                width: 200px;
+                height: 60px;
+            }
+        }
+    }
+    //使用说明部分
+    .integralll{
+        margin-top: 20px;
+        border: 1px #D1D2D3 solid;
+        border-radius: 10px;
+        padding: 0 20px;
+        p{
+            font-size: 16px;
+            color: #2C3E50;
+        }
+    }
+}

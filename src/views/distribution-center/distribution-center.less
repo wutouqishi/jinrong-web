@@ -1,0 +1,128 @@
+.my-wrap{
+    position: relative;
+    padding-top: 10px;
+    background-color: #fafafa;
+    padding-bottom: 60px;
+    &::before{
+        // z-index: -1;
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        display: block;
+        background-image: url('~@/assets/img/home-top.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 226px;
+    }
+    .navigation-top{
+        position: relative;
+        z-index: 1;
+        margin:auto;
+        display: flex;
+        height: 140px;
+        // 头像headPortrait
+        .headPortrait{
+            width: 62px;
+            height: 62px;
+            margin: 50px 10px 28px 24px;
+            border-radius: 6px;
+            border: 1Px #ccc solid;
+        }
+        // 昵称部分nickname
+        .nickname{
+            // width: 217px;
+            height: 62px;
+            margin: 50px 24px 28px 10px;
+            span:first-child{
+                padding-left: 2px;
+                font-size: 30px;
+                // font-weight: 700;
+                color: #fff;
+            }
+            span{
+                padding-left: 2px;
+                font-size: 12px;
+                color: #fff;
+            }
+        }
+    }
+    .navigation-column{
+        position: relative;
+        z-index: 1;
+        background-color: #fff;
+        border-radius: 6px;
+        margin: 0 15px;
+        display: flex;
+        flex-wrap: wrap;
+        // width: 347px;
+        // box-shadow: 0 0 10px 0px #ddd;
+        .li{
+            margin: 6px 20px;
+            width: 100%;
+            height: 44px;
+            line-height: 44px;
+            border-bottom: 2PX #E2E4EA solid;
+            &:last-child{
+                margin-bottom: 20px;
+            }
+            &::after{
+                // z-index: -1;
+                content: '';
+                position: absolute;
+                right: 20px;
+                display: block;
+                margin-top: 20px;
+                border-top: 2PX #C5CAD5 solid;
+                border-right: 2PX #C5CAD5 solid;
+                transform: rotate(45deg);
+                width: 10px;
+                height: 10px;
+            }
+            img{
+                width: 18px;
+                height: 18px;
+                display: block;
+                float: left;
+                margin-top: 12px;
+            }
+            span{
+                margin-left: 10px;
+                display: block;
+                float: left;
+                height: 20px;
+                font-size: 16px;
+                color: #111A34;
+                letter-spacing: 2px;
+            }
+        }
+    }
+    .tabbar{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        height: 38px;
+        padding: 6px;
+        background-color: #fafafa;
+        .item{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            .txt{
+                font-size: 12px;
+            }
+            .icon{
+                width: 30px;
+                height: 30px;
+                object-fit: contain;
+            }
+        }
+
+    }
+}

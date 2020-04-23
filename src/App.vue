@@ -10,7 +10,7 @@
       placeholder
     />
     <router-view />
-    <div class="tab-bar" v-if="tab_hover != -1">
+    <div class="tab-bar" v-if="tab_hover != -1&&tab_hover != 99">
       <router-link to="/" class="item" :class="{hover:tab_hover==0}">
         <van-icon name="wap-home-o" />
         <div class="txt">首页</div>
@@ -80,10 +80,18 @@ export default {
           break;
         case "contact":
           this.tab_hover = 3;
-          break;
+          break;       
         default:
           this.tab_hover = -1;
           break;
+      }
+      let nod = [
+        'certifiedMember',
+        'generalMembers',
+        'commonProblem'
+      ]
+      if(nod.indexOf(to.name)!=-1){
+        this.tab_hover = 99;
       }
     }
   },

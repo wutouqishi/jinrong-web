@@ -1,8 +1,9 @@
 <style lang="less">
-@import "./my.less";
+@import "./distribution-center.less";
 </style>
 
 <template>
+<!-- 分销中心 -->
   <div class="my-wrap">
     <div class="navigation-top">
       <!-- 头像 -->
@@ -16,29 +17,13 @@
     </div>
 
     <div class="navigation-column">
-      <router-link to="/my-message" class="li">
+      <router-link to="/instructions" class="li">
         <img :src="c_user_info" alt />
-        <span>我的信息</span>
+        <span>邀请码使用说明书</span>
       </router-link>
-      <router-link to="/my-appointment" class="li">
+      <router-link to="" class="li">
         <img :src="c_my_reserve" alt />
-        <span>我的预约</span>
-      </router-link>
-      <router-link to="/my-products" class="li">
-        <img :src="c_my_product" alt />
-        <span>我的产品</span>
-      </router-link>
-      <router-link to="/finished-product" class="li">
-        <img :src="c_financial" alt />
-        <span>已完成产品</span>
-      </router-link>
-      <router-link to="/distribution-center" class="li">
-        <img :src="c_financial" alt />
-        <span>分销中心</span>
-      </router-link>
-      <router-link to="/my-gold-coin" class="li">
-        <img :src="c_financial" alt />
-        <span>我的金币</span>
+        <span>我的邀请码</span>
       </router-link>
     </div>
 

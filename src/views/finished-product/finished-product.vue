@@ -4,7 +4,7 @@
 <template>
   <div class="finished-product-wrap">
     <!-- 返回部分 -->
-    <div class="return">已完成产品</div>
+    <!-- <div class="return">已完成产品</div> -->
   </div>
 </template>
 <script>

@@ -99,6 +99,33 @@ export default [
     },
     component: () => import('_v/finished-product/finished-product.vue')
   },
+  //分销中心
+  {
+    path: '/distribution-center',
+    name: 'distributionCenter',
+    meta:{
+      title:'分销中心'
+    },
+    component: () => import('_v/distribution-center/distribution-center.vue')
+  },
+  //使用说明书
+  {
+    path: '/instructions',
+    name: 'instructions',
+    meta:{
+      title:'邀请码使用说明书'
+    },
+    component: () => import('_v/instructions/instructions.vue')
+  },
+  //我的金币
+  {
+    path: '/my-gold-coin',
+    name: 'myGoldCoin',
+    meta:{
+      title:'我的积分'
+    },
+    component: () => import('_v/my-gold-coin/my-gold-coin.vue')
+  },
   //认证会员
   {
     path: '/certified-member',
