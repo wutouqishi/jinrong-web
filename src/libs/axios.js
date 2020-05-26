@@ -1,21 +1,18 @@
 /* eslint-disable prefer-promise-reject-errors */
 import axios from 'axios'
 import store from '@/store'
-import { Toast } from 'vant'
+import { Toast, Form } from 'vant'
 import Router from '@/router/index'
 import { getToken, setToken } from '@/libs/util'
-
-// state
-
+import { url } from '@/config'
 class HttpRequest {
-  constructor (publicPath = publicPath) {
-    this.publicPath = publicPath
+  constructor () {
+    this.baseURL = url
     this.queue = {}
   }
   getInsideConfig () {
     const config = {
-      publicPath: this.publicPath,
-      withCredentials: true,
+      baseURL:  this.baseURL,
       headers: {
         'content-type':'application/json;charset=UTF-8',
         'Authorization':`Bearer ${store.state.token}`
@@ -37,14 +34,16 @@ class HttpRequest {
     // 响应拦截
     instance.interceptors.response.use(res => {
       this.destroy(url)
-      // const { data } = res
+      
       if (res.status === 403){
         Toast.fail('访问受限');
       }else if (res.status === 401){
         setToken('')
         Toast.fail('授权过期，重新登录');
       }else if (res.status >= 400){
-        Toast.fail('发生错误，请重试');
+        setToken('')
+        return res.data
+        // Toast.fail('发生错误，请重试');
       }else {
         return res.data
       }
@@ -53,21 +52,13 @@ class HttpRequest {
       this.destroy(url)
       let errorInfo = error.response
       if (!errorInfo) {
-        const { request: { statusText, status }, config } = JSON.parse(JSON.stringify(error))
-        errorInfo = {
-          statusText,
-          status,
-          request: { responseURL: config.url }
-        }
+
       }
       return Promise.reject(error)
     })
   }
   request (options) {
     const instance = axios.create()
-    if (options.headers) {
-      options.headers = Object.assign(this.getInsideConfig().headers, options.headers)
-    }
     options = Object.assign(this.getInsideConfig(), options)
     this.interceptors(instance, options.url)
     return instance(options)

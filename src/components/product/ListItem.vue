@@ -1,12 +1,16 @@
 <template>
-  <router-link :to="`/${item.id}`" class="pr-li">
+  <router-link :to="`/products/${item.id}`" class="pr-li">
     <div class="pr-tit">{{ item.name }}</div>
     <div class="data">
       <div class="expected">
         <strong class="num">{{ item.income }}</strong>
         <span class="span">预期年化收益率</span>
       </div>
-      <div class="appear">
+      <div class="appear" v-if="item.money">
+        <strong class="num">{{ item.money }}万元</strong>
+        <span class="span">预约金</span>
+      </div>      
+      <div class="appear" v-else>
         <strong class="num">{{ item.starting_point }}万元</strong>
         <span class="span">起购点</span>
       </div>
@@ -25,15 +29,15 @@ export default {
 
 
 <style lang="less">
-.pr-list {
-  margin: 0 14px;
+
   .pr-li {
     display: block;
+    margin: 0 14px;
     margin-top: 10px;
 
     border-bottom: 1px solid #f4f4f4;
     .pr-tit {
-      font-size: 14px;
+      font-size: 16px;
       color: #333;
     }
     .data {
@@ -46,8 +50,8 @@ export default {
         width: 128px;
         .num {
           line-height: 36px;
-          color: #e43a36;
-          font-size: 18px;
+          color: #da3531;
+          font-size: 20px;
           font-weight: bold;
         }
       }
@@ -57,14 +61,14 @@ export default {
         .num {
           line-height: 36px;
           color: #666;
-          font-size: 14px;
+          font-size: 16px;
         }
       }
       .span {
-        font-size: 12px;
+        font-size: 14px;
         color: #999;
       }
     }
   }
-}
+
 </style>

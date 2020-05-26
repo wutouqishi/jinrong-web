@@ -15,3 +15,19 @@ export const bind = (data) => {
     data,
   })
 }
+
+export const verificationCode = (data)=>{
+  return axios.request({
+    url: '/api/verificationCodes',
+    method: 'post',
+    data: data
+  })
+}
+
+// export function bind(params) {
+//   return axios.request({
+//     url: 'auth/users',
+//     method: 'put',
+//     data: params
+//   })
+// }

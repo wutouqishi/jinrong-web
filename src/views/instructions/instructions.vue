@@ -3,18 +3,18 @@
 </style>
 <template>
   <div class="instructions-wrap">
-    <div class="img">
-      <img :src="explain" alt />
-    </div>
+    
+    <img class="imgib" src="http://admin.dfruihe.com/explain.png" alt />
+    
   </div>
 </template>
 <script>
-import explain from "@/assets/svg/explain.png";
+
 export default {
   name: "instructions",
   data() {
     return {
-      explain
+      
     };
   }
 };

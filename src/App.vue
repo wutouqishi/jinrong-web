@@ -9,7 +9,9 @@
       fixed
       placeholder
     />
-    <router-view />
+    <keep-alive :include='include'>
+      <router-view />
+    </keep-alive>
     <div class="tab-bar" v-if="tab_hover != -1&&tab_hover != 99">
       <router-link to="/" class="item" :class="{hover:tab_hover==0}">
         <van-icon name="wap-home-o" />
@@ -22,10 +24,10 @@
       <div class="item">
         <img class="icon" :src="logo" alt />
       </div>
-      <router-link to="/service" class="item" :class="{hover:tab_hover==2}">
+      <div @click="to_server" class="item" :class="{hover:tab_hover==2}">
         <van-icon name="service-o" />
         <div class="txt">更多服务</div>
-      </router-link>
+      </div>
       <router-link to="/contact" class="item" :class="{hover:tab_hover==3}">
         <van-icon name="phone-o" />
         <div class="txt">联系我们</div>
@@ -37,17 +39,33 @@
 import logo from "@/assets/img/logo.png";
 export default {
   metaInfo: {
-    titleTemplate: "%s - 金融",
+    titleTemplate: "东方瑞和",
     htmlAttrs: {
       lang: "zh-CN",
       amp: true
-    }
+    },
+    meta: [
+      {
+        name: "viewport",
+        content: "width=device-width,user-scalable=no"
+      }
+    ]
   },
   data() {
     return {
       logo,
       bar_title: "",
-      tab_hover: 0
+      tab_hover: 0,
+      include:[
+        'myProduct',
+        'closedProduct',
+        'financialPlanning',
+        'news',
+        'service',
+        'myProduct',
+        'finishedProduct',
+        'myAppointment'
+      ]
     };
   },
   computed: {
@@ -88,7 +106,8 @@ export default {
       let nod = [
         'certifiedMember',
         'generalMembers',
-        'commonProblem'
+        'commonProblem',
+        'bind'
       ]
       if(nod.indexOf(to.name)!=-1){
         this.tab_hover = 99;
@@ -118,6 +137,13 @@ export default {
     this.remsuofang();
   },
   methods: {
+    to_server(){
+      if(this.$store.state.user&&this.$store.state.user.is_approve){
+        this.$router.push('service')
+      }else{
+        this.$toast('成为认证用户后，即可查看')
+      }
+    },
     onClickLeft() {
       this.$router.go(-1);
     }
@@ -145,6 +171,7 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 9;
   display: flex;
   height: 38px;
   padding: 6px;

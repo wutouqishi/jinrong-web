@@ -10,23 +10,26 @@
     </div>
     <!-- 信息展示部分 -->
     <div class="information-display">
-        <div class="if-row ro-tit">我的信息</div>
+        <div class="ro-tit">我的信息</div>
         <div class="if-row">
           <p>姓名</p>
           <p class="row-r"><span>{{user.name}}</span></p>
         </div>
-        <div class="if-row" v-for="(item, index) in user_data" :key="item.name" >
-          <p>{{item.name}}</p>
-          <p class="row-r" @click="showData(index)">
-            <template v-if="item.type">
-              <span>{{item.show}}</span><van-icon name="eye-o" />
-            </template>
-            <template v-else>
-              <span>{{item.text}}</span><van-icon name="closed-eye" />
-              
-            </template>
-          </p>
-        </div>
+        <template v-for="(item, index) in user_data">
+          <div class="if-row"  :key="item.name" v-if="item.show" >
+            <p>{{item.name}}</p>
+            <p class="row-r" @click="showData(index)">
+              <template v-if="item.type">
+                <span>{{item.show}}</span><van-icon name="eye-o" />
+              </template>
+              <template v-else>
+                <span>{{item.text}}</span><van-icon name="closed-eye" />
+                
+              </template>
+            </p>
+          </div>
+        </template>
+
         
         <div class="if-row"><p>地址</p> <p class="row-r"><span>{{user.address}}</span></p></div>
     </div>

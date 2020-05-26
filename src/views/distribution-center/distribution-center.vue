@@ -3,57 +3,75 @@
 </style>
 
 <template>
-<!-- 分销中心 -->
-  <div class="my-wrap">
+  <!-- 分销中心 -->
+  <div class="distribution-center-wrap">
     <div class="navigation-top">
       <!-- 头像 -->
       <img class="headPortrait" :src="user.avatar" />
       <!-- 昵称部分 -->
       <div class="nickname">
         <span>{{user.name}}</span>
-        <br />
         <span>微信昵称：{{user.nick_name}}</span>
       </div>
     </div>
 
     <div class="navigation-column">
       <router-link to="/instructions" class="li">
-        <img :src="c_user_info" alt />
+        <img :src="invitation" alt />
         <span>邀请码使用说明书</span>
       </router-link>
-      <router-link to="" class="li">
-        <img :src="c_my_reserve" alt />
+      <div @click="show_code" class="li">
+        <img :src="qr_code_icon" alt />
         <span>我的邀请码</span>
-      </router-link>
+      </div>
     </div>
-
+    <van-popup v-model="popup_show" closeable round>
+      <div class="code-wrap">
+         <img class="my-qr" :src="img_qr" alt />
+         <p class="texti">我的邀请码</p>
+      </div>
+    </van-popup>
   </div>
 </template>
 
 <script>
-import c_user_info from '@/assets/svg/c-user-info.png'
-import c_my_reserve from '@/assets/svg/c-my-reserve.png'
-import c_my_product from '@/assets/svg/c-my-product.png'
-import c_financial from '@/assets/svg/c-financial.png'
+import invitation from "@/assets/svg/invitation.png";
+import qr_code_icon from "@/assets/svg/qr-code.png";
+
+import { qr_code } from "_api/user";
 
 export default {
   name: "my",
   data() {
     return {
-      c_user_info,
-      c_my_reserve,
-      c_my_product,
-      c_financial
-    }
+      popup_show: false,
+      invitation,
+      qr_code_icon,
+      img_qr: ""
+    };
   },
   computed: {
     user() {
       return this.$store.state.user;
     }
   },
-  created(){
-    console.log(this.user)
+  created() {
+    console.log(this.user);
+  },
+  methods: {
+    show_code() {
+      if (this.img_qr) {
+        this.popup_show = true;
+      } else {
+        this.get_code();
+      }
+    },
+    get_code() {
+      qr_code(this.user.id).then(res => {
+        this.img_qr = res
+        this.popup_show = true;
+      });
+    }
   }
 };
 </script>
-

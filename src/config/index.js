@@ -1,0 +1,11 @@
+// export const img_url = 'http://admin.dfruihe.com/'
+// export const url = 'http://admin.dfruihe.com/'
+// export const appid='wxe6ff7aaa9654e2d1'
+// export const redirect_uri = encodeURI('http://admin.dfruihe.com/')
+export const img_url ='http://200312jinrong.shendupro.com'
+export const url = 'http://200312jinrong.shendupro.com'
+// export const url = "http://192.168.0.12:20312"
+export const appid = 'wx210b6ea95dbfbe1f'
+export const redirect_uri = encodeURI('http://jrapp.shendupro.com')
+// export const token_test=''
+export const token_test = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8yMDAzMTJqaW5yb25nLnNoZW5kdXByby5jb21cL2FwaVwvYXV0aFwvdXNlcnMiLCJpYXQiOjE1OTA0NTg3NTYsImV4cCI6MTU5MDU0NTE1NiwibmJmIjoxNTkwNDU4NzU2LCJqdGkiOiI3b1ZSY2wzcTlZd09NS0ZGIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.f6xQIKlBxXDlec9XIYDURUoirFXqYoKA3OR5q0mgp0I"

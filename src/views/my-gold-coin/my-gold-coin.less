@@ -1,11 +1,13 @@
-.wrap{
-    position: relative;
-    padding-top: 10px;
+.my-gold-wrap{
+    // position: relative;
+    // padding-top: 10px;
+    // padding-bottom: 20px;
     background-color: #f9fafb;
-    padding-bottom: 60px;
-    width: 100vw;
-    height: 100vh;
-    &::before{
+    // width: 100vw;
+    height: calc(100vh - 56px);
+    // display: flex;
+    // flex-direction: column;
+    .before{
         // z-index: -1;
         content: '';
         position: absolute;
@@ -13,18 +15,37 @@
         right: 0;
         top: 0;
         display: block;
-        background-image: url('~@/assets/svg/fx_bg.70aff989.png');
+        
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        height: 200px;
+        height: 226px;
     }
+    // &::before{
+    //     // z-index: -1;
+    //     content: '';
+    //     position: absolute;
+    //     left: 0;
+    //     right: 0;
+    //     top: 0;
+    //     display: block;
+    //     background-image: url('~@/assets/img/fx_bg.d2f9cb27.png');
+    //     background-size: 100% 100%;
+    //     background-repeat: no-repeat;
+    //     background-position: top center;
+    //     height: 200px;
+    // }
     //头部
     .head{
+        flex-shrink: 0;
         overflow: hidden;
         position: relative;
+        // background-image: url('~@/assets/img/fx_bg.d2f9cb27.png');
+        // background-size: 100% 100%;
+        // background-repeat: no-repeat;
+        // background-position: top center;
         // z-index: 1;
-        height: 190px;
+        height: 200px;
         //头像
         .portrait{
             width: 100vw;
@@ -44,31 +65,31 @@
                 height: 50px;
                 margin-left: 20px;
                 line-height: 50px;
-                font-size: 26px;
+                font-size: 20px;
                 letter-spacing: 2px;
-                color: #2C3E50;
+                color: #fff;
             }
         }
         //金币部分
         .gold{
             margin: 10px auto 0;
             height: 50px;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             img{
                 display: block;
-                float: left;
-                margin-left: 100px;
-                width: 50px;
-                height: 50px;
+
+                width: 30px;
             }
             span{
                 display: block;
-                float: left;
+                
                 line-height: 50px;
                 padding:0 10px;
-                font-size: 22px;
+                font-size: 45px;
                 font-weight: 700;
-                color: #2C3E50;
+                color: rgb(255, 230, 134);
                 height: 50px;
             }
         }
@@ -76,41 +97,135 @@
             width: 100vw;
             height: 50px;
             font-size: 18px;
-            color: #727D88;
+            color: rgb(255, 230, 134);
             line-height: 50px;
             text-align: center;
         }
-        
     }
-    //三个导航按钮部分
-    .list{
-        position: relative;
-        z-index: 1;
+    .nav-wrap{
         display: flex;
-        flex-wrap: wrap;
-        height: 88px;
-        border-bottom: 1px #DBDCDD solid;
-        .li{
-            width: 33%;
-            height: 100%;
-            text-align: center;
-            img{
-                display: block;
-                width: 50px;
-                height: 50px;
-                margin: auto;
+        justify-content: space-around;
+        padding: 10px 0;
+        background-color: #fff;
+        .lis{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .n-icon{
+                width: 25px;
+                height: 25px;
+                object-fit: contain;
             }
-            span{
+            .text{
+                padding-top: 10px;
                 font-size: 14px;
-                color: #2C3E50;
+                color: #333;
             }
         }
     }
+
+    .goods-wrap{
+        background-color: #fff;
+        margin-top: 10px;
+        .go-title{
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            .name{
+                padding: 0 10px;
+                font-size: 14px;
+            }
+            img{
+                width: 45px;
+                height: 9px;
+            }
+        }
+        .goods-list-wrap{
+            margin: 0 10px;
+            display: flex;
+            flex-wrap: wrap;
+            .good-card{
+                width: 50%;
+                padding: 10px;
+                box-sizing: border-box;
+                .good-li{
+                    display: block;
+                    .img-wrap{
+                        height: 155px;
+                        border: 1px solid #eee;
+                        border-radius: 4px;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            box-sizing:border-box;
+                            padding: 10px;
+                            object-fit: contain;
+                        }
+                    }
+                    .name{
+                        padding-top: 6px;
+                        height: 32px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        font-size: 14px;
+                        line-height: 16px;
+                        color: #4c4c4c;
+                    }
+                    .row-but{
+                        display: flex;
+                        justify-content: space-between;
+                        .score{
+                            font-size: 14px;
+                            color: #cc0e00;
+                        }
+                        .button{
+                            font-size: 12px;
+                            color: #cc0e00;
+                            padding: 0 8px;
+                            border-radius: 9px;
+                            line-height: 18px;
+                            border: 1px solid #cc0e00;
+                        }
+                    }
+                }
+            }
+        }
+     
+        
+    }
+    .empty-wrap{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+        .em-img{
+          width: 200px;
+          height: 200px;
+        }
+        .en-one{
+          font-size: 14px;
+        }
+      }
     //收入明细部分
     .integral{
-        margin-top: 20px;
-        border: 1px #D1D2D3 solid;
+        flex: 1;
+        margin-top: 15px;
+        padding-bottom: 15px;
         border-radius: 10px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        .divider{
+            text-align: center;
+            font-size: 18px;
+            color: #999;
+            margin-top: 10px
+        }
         .li{
             height: 56px;
             margin: 0 32px;
@@ -139,24 +254,39 @@
                 width: 30vw;
                 height: 100%;
                 font-size: 12px;
-                color: #1D39C4;
+                color:rgba(0,0,0,0.8);
                line-height: 56px;
                text-align: right;
+               &.on{
+                color: #FF4D4F;
+               }
             }
         }
     }
     //好友列表部分
     .integrall{
-        margin-top: 20px;
-        border: 1px #D1D2D3 solid;
+        flex: 1;
+        margin: 0 15px;
+        margin-top: 15px;
+        padding-bottom: 15px;
         border-radius: 10px;
-        padding: 0 20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        .divider{
+            text-align: center;
+            font-size: 18px;
+            color: #999;
+            margin-top: 10px
+        }
         .lii{
+            padding: 0 5px;
             height: 84px;
             border-bottom: 1PX #D9DADB solid;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             .left{
                 margin: 10px 0;
-                float: left;
                 width: 60px;
                 height: 60px;
                 border-radius: 8px;
@@ -168,21 +298,24 @@
             }
             .rigth{
                 margin: 10px 0;
-                float: right;
                 font-size: 16px;
-                color: #5c0011;
-                line-height: 60px;
                 text-align: right;
-                width: 200px;
-                height: 60px;
+                .name{
+                    font-size: 16px;
+                }
+                .time{
+                    font-size: 14px;
+                    color: #aaa;
+                }
             }
         }
     }
     //使用说明部分
     .integralll{
         margin-top: 20px;
-        border: 1px #D1D2D3 solid;
-        border-radius: 10px;
+        flex: 1;
+        overflow-x: hidden;
+        overflow-y: auto;
         padding: 0 20px;
         p{
             font-size: 16px;
