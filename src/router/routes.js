@@ -309,5 +309,14 @@ export default [
       title: '我的订单'
     },
     component: () => import('_v/order-details/order-details.vue') 
+  },
+  //我的合同
+  {
+    path: "/user-contract",
+    name:'userContract',
+    meta:{
+      title: '我的合同'
+    },
+    component: () => import('_v/user-contract/user-contract.vue') 
   }
 ]

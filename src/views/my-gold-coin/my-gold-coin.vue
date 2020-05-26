@@ -103,6 +103,7 @@ export default {
   name: "myGoldCoin",
   data() {
     return {
+      cushi,
       empty,
       download,
       income_out,

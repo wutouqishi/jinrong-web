@@ -15,7 +15,7 @@
         <span>微信昵称：{{user.nick_name}}</span>
         <div class="onesbur">
           <p class="user-title">初识者</p>
-          <p class="sign-in">签到</p>
+          <p class="sign-in" @click="sign_in_ch">签到</p>
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
         <span>已完成产品</span>
       </router-link>
       <div class="li" v-if="user.is_approve" @click="myContract">
-        <img :src="distribution" alt />
+        <img :src="contract" alt />
         <span>我的合同</span>
       </div>
       <router-link to="/distribution-center" class="li" v-if="user.is_approve">
@@ -66,10 +66,24 @@
         <span>我的订单</span>
       </router-link>
     </div>
+
+    <van-popup v-model="show_sign_in">
+      <div class="class_wrap">
+
+        <img class="bacnen" :src="sign_in" alt="">
+        <div class="sign-card">
+          <p class="title-one">已连续签到1天</p>
+          <p class="record">恭喜您获得 <span>1</span> 瑞和金币</p>
+          <p class="centert">签到7天为一个周期，获得金币数随签到天数递增，连续签到7天可获得额外奖励</p>
+          <div class="confirm" @click="show_sign_in=false">确认</div>
+        </div>
+      </div>
+    </van-popup>
   </div>
 </template>
 
 <script>
+import sign_in from "@/assets/images/sign_in.png";
 import cushi from "@/assets/images/cushi.jpg";
 import c_user_info from "@/assets/images/information.png";
 import c_my_reserve from "@/assets/images/appointment.png";
@@ -81,14 +95,18 @@ import equity from "@/assets/images/equity.png";
 import address from "@/assets/images/address.png";
 import mall from "@/assets/images/mall.png";
 import order from "@/assets/images/order.png";
+import contract from "@/assets/images/contract.jpg";
 
-import { getVerifiedUrl } from "_api/user";
+import { getVerifiedUrl, sign } from "_api/user";
 
 export default {
   name: "my",
   data() {
     return {
+      show_sign_in: true,
+      sign_in,
       cushi,
+      contract,
       c_user_info,
       c_my_reserve,
       c_my_product,
@@ -110,6 +128,12 @@ export default {
     }
   },
   methods: {
+    sign_in_ch(){
+      sign().then(res=>{
+        this.show_sign_in = true
+      })
+      
+    },
     myContract() {
       if (!this.user.is_verified) {
         const redirectUrl = window.location.href;

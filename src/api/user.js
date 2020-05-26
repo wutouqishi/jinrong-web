@@ -85,3 +85,35 @@ export function getVerifiedUrl(params) {
     params,
   })
 }
+
+export function contract(params) {
+  return axios.request({
+    url: `/api/user/contract?include=productSimple,images`,
+    method: 'get',
+    params,
+  })
+}
+
+
+export function getContract(params) {
+  return axios.request({
+    url: `/api/user/download-contract/${params.flowId}`,
+    method: 'get',
+  })
+}
+
+export function cert(params) {
+  return axios.request({
+    url: `/api/user/order/cert/${params.id}`,
+    method: 'post',
+    data: params,
+  })
+}
+
+export function sign(params) {
+  return axios.request({
+    url: `/api/sign_in/sign`,
+    method: 'post',
+    data: params,
+  })
+}
