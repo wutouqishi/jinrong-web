@@ -129,7 +129,9 @@ export default {
   },
   methods: {
     sign_in_ch(){
-      sign().then(res=>{
+      sign({
+        user_id:this.user.id
+      }).then(res=>{
         this.show_sign_in = true
       })
       
